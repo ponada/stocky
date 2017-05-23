@@ -1,16 +1,20 @@
 <?php
-    $json = file_get_contents("http://tut.by");
-    $obj = json_decode($json);
-    $userName =  $obj -> name;
-    $userCity = $obj -> city;
-    $userAge = $obj -> age;
+    /*
+    header('Content-Type: text/html; charset=UTF-8');
+    echo '<pre>';
+    $ft = fopen("admin/bd/data.csv", "r");
+    while(!feof($ft)) {
+        $buffer = fgets($ft);
+        echo $buffer;
+    }
+    echo '</pre>';
+    fclose($ft);
+    */
 
-    $userAge = 22;
-
-    $obj2 = json_encode($json);
-
-    file_put_contents("data.json", $obj2);
-
-    echo $json;
-
+    $handle = fopen("admin/bd/data.json", "r");
+    for ($i = 0; $info = fgets($handle); $i++) {
+        if($i == 2) {
+            echo $info;
+        }
+    }
 ?>

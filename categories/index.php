@@ -74,32 +74,8 @@
 		<header>
 			<!-- Primary Navigation
 				============================================= -->
-			<ul class="nav nav-bar fixed clearfix">
-				<div class="container">
-					<li id="logo" >
-						<a href="#" class="navbar-brand">stocky.com</a>
-					</li>
-					<li id="menu" class="navbar-right" style="">
-						<ul>
-							<li role="presentation" class="dropdown">
-								<a href="#" class="dropdown-toggle" id="drop4" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> 
-									<span class="glyphicon glyphicon-list" aria-hidden="true"></span>
-								</a> 
-								<ul class="dropdown-menu categories" id="menu1" aria-labelledby="drop4"> 
-									<li><a href="#">Категория1</a></li>
-									<li><a href="#">Категория2</a></li>
-									<li><a href="#">Категория3</a></li>
-									<li><a href="#">Категория4</a></li>
-									<li><a href="#">Категория5</a></li>
-									<li role="separator" class="divider"></li>
-									<li><a href="#" data-toggle="modal" data-target="#loadImg">Загрузить изображение</a></li>
-									<li><a href="#" data-toggle="modal" data-target="#sendMessage">Написать нам</a></li>
-								</ul> 
-							</li>
-						</ul>
-					</li>
-				</div>
-			</ul><!-- #navigation end -->
+			<?php require '/../admin/views/header.php' ?>
+			<!-- #navigation end -->
 		</header>
 		<!-- Wrapper
 		============================================= -->
@@ -166,11 +142,8 @@
 		</div><!-- #wrapper end -->
 		<!-- Footer
 			============================================= -->
-		<footer class="footer">
-			<div class="footer_container white text-center container">
-				<h4>#stocky</h4>
-			</div>
-		</footer><!-- #footer end -->
+			<?php require '/../admin/views/header.php' ?>
+		<!-- #footer end -->
 	<script
 		src="https://code.jquery.com/jquery-3.2.1.min.js"
 		integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
