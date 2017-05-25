@@ -11,10 +11,13 @@
     fclose($ft);
     */
 
-    $handle = fopen("admin/bd/data.json", "r");
-    for ($i = 0; $info = fgets($handle); $i++) {
-        if($i == 2) {
-            echo $info;
-        }
-    }
+    $json = file_get_contents("admin/api/api.json", "r");
+    $obj = json_decode($json);
+    print $obj->{'categories'}->{'1'};
+    print $obj->{'categories'}->{'2'};
+    print $obj->{'categories'}->{'3'};
+    print $obj->{'categories'}->{'4'};
+    print $obj->{'categories'}->{'5'};
+
+
 ?>

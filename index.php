@@ -10,8 +10,16 @@
 		<link rel="stylesheet" href="css/styles.css">
 	</head>
 	<body>
-		<!-- Header
-		============================================= -->
+        <!-- Modal loading img
+        ============================================= -->
+        <?php require 'admin/views/modal-load.php' ?>
+        <!-- #modal end -->
+        <!-- Modal sending message
+        ============================================= -->
+        <?php require 'admin/views/modal-send.php' ?>
+        <!-- #modal end -->
+        <!-- Header
+        ============================================= -->
 		<header class="header">
 			<!-- Primary Navigation
 				============================================= -->
@@ -113,11 +121,3 @@
 			============================================= -->
             <?php require 'admin/views/footer.php' ?>
 		<!-- #footer end -->
-	<script
-		src="https://code.jquery.com/jquery-3.2.1.min.js"
-		integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-		crossorigin="anonymous"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-	<script src="script/common.js"></script>
-	</body>
-</html>

@@ -16,8 +16,14 @@
                         <li><a href="#">Категория4</a></li>
                         <li><a href="#">Категория5</a></li>
                         <li role="separator" class="divider"></li>
-                        <li><a href="#loadImg">Загрузить изображение</a></li>
-                        <li><a href="#sendMessage">Написать нам</a></li>
+                        <li data-toggle="modal" data-target="#loadImg">
+                            <span class="glyphicon glyphicon-picture aria-hidden="true"></span>
+                            <span>Загрузить изображение</span>
+                        </li>
+                        <li data-toggle="modal" data-target="#sendMessage">
+                            <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                            <span>Написать нам</span>
+                        </li>
                     </ul>
                 </li>
             </ul>
