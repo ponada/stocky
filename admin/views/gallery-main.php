@@ -1,22 +1,9 @@
 <div class="gallery col-xs-6">
+    <?php foreach($items as $item) {?>
     <div class="row clearfix">
         <div class="col col-xs-12">
-            <img class="gallery-item" src="../img/gallery/belka.jpg" alt="">
+            <img class="gallery-item" src="<?php echo IMAGES_PATH.$item[1]; ?>" alt="<?php echo $item[2]; ?>">
         </div>
     </div>
-    <div class="row clearfix">
-        <div class="col col-xs-12">
-            <img class="gallery-item" src="../img/gallery/bear.jpg" alt="">
-        </div>
-    </div>
-    <div class="row clearfix">
-        <div class="col col-xs-12">
-            <img class="gallery-item" src="../img/gallery/child1.jpg" alt="">
-        </div>
-    </div>
-    <div class="row clearfix">
-        <div class="col col-xs-12">
-            <img class="gallery-item" src="../img/gallery/child2.jpg" alt="">
-        </div>
-    </div>
+    <?php } ?>
 </div>

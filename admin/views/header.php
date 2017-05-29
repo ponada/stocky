@@ -1,7 +1,7 @@
 <ul class="nav nav-bar fixed clearfix">
     <div class="container">
         <li id="logo" >
-            <a href="#" class="navbar-brand">stocky.com</a>
+            <a href="#" class="navbar-brand"><?php echo $info["title"];?></a>
         </li>
         <li id="menu" class="navbar-right" style="">
             <ul>
@@ -10,11 +10,12 @@
                         <span class="glyphicon glyphicon-list" aria-hidden="true"></span>
                     </a>
                     <ul class="dropdown-menu categories" id="menu1" aria-labelledby="drop4">
-                        <li><a href="#">Категория1</a></li>
-                        <li><a href="#">Категория2</a></li>
-                        <li><a href="#">Категория3</a></li>
-                        <li><a href="#">Категория4</a></li>
-                        <li><a href="#">Категория5</a></li>
+                        <li><a href="#">Все</a></li>
+
+                        <?php foreach($categories as $category) {?>
+                        <li><a href="#"><a href="#"><?php echo $category["name"];?></a></li>
+                        <?php }?>
+
                         <li role="separator" class="divider"></li>
                         <li data-toggle="modal" data-target="#loadImg">
                             <span class="glyphicon glyphicon-picture aria-hidden="true"></span>

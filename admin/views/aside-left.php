@@ -2,11 +2,12 @@
     <div class="left_container">
         <div class="left_nav">
             <ul class="list-group submenu">
-                <li class="list-group-item"><a href="#">Категория1</a></li>
-                <li class="list-group-item"><a href="#">Категория2</a></li>
-                <li class="list-group-item"><a href="#">Категория3</a></li>
-                <li class="list-group-item"><a href="#">Категория4</a></li>
-                <li class="list-group-item"><a href="#">Категория5</a></li>
+                <li class="list-group-item"><a href="#">Все</a></li>
+
+                <?php foreach($categories as $category) {?>
+                <li class="list-group-item"><a href="#"><?php echo $category["name"];?></a></li>
+                <?php }?>
+
             </ul>
         </div>
         <div class="left_banner">
