@@ -37,7 +37,7 @@ function getCategories() {
 function getCategoriesById($id) {
     if (file_exists(CATEGORY)) {
         $data = file_get_contents(CATEGORY);
-        $categories = json_encode($data, true);
+        $categories = json_decode($data, true);
         foreach ($categories as $category) {
             if ($categories["id"] == $category) {
                 return $category;

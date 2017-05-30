@@ -1,8 +1,9 @@
 <?php
     require_once "utils.php";
     define('CATEGORY', "../admin/bd/categories.json");
+    define('CATEGORY_ITEMS', "../admin/bd/category_items");
     define('INFO', "../admin/bd/info.json");
-    define('IMAGES_PATH', "../admin/bd/img/gallery");
+    define('IMAGES_PATH', "../img/gallery/");
     $categories = getCategories();
     $categoriesById = getCategoriesById(1);
     $info = getInfo();
