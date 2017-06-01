@@ -19,6 +19,7 @@
             $access = validateUser($email, $password);
             if ($access["status"]){
                 require 'views/admin_panel.php';
+                createCategory("deti");
             }else{
                 require 'views/admin_form.php';
             }

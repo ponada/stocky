@@ -68,12 +68,14 @@
                         </tr>
                         </thead>
                         <tbody>
+
+                        <?php foreach ($categories as $category) { ?>
                         <tr>
                             <th>
-                                1
+                                <?php echo $category["id"]; ?>
                             </th>
                             <th>
-                                <input type="text" class="form-change" value="Животные">
+                                <input type="text" class="form-change" value="<?php echo $category["name"]; ?>">
                             </th>
                             <th>
                                 <a href="#" class="glyphicon glyphicon-pencil" data-toggle="tooltip" title="Редактировать"></a>
@@ -88,6 +90,8 @@
                                 </div>
                             </th>
                         </tr>
+                        <?php } ?>
+
                         <tr>
                             <th>
                                 2

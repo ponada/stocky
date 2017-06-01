@@ -6,6 +6,10 @@ define('IMAGES_PATH', "../img/gallery/");
 define('ITEM_VALIDATION_PATH',"../bd/items_validation.csv");
 define('IMAGE_MAX_WIDTH',400);
 
+
+define('ADMIN_CATEGORIES_ITEMS_PATH', 'bd/category_items');
+define('ADMIN_CATEGORIES_PATH', 'bd/categories.json');
+
 function validateUser($email, $password){
     $info = getInfo('bd/info.json');
     $answer = array("status"=>false);
@@ -121,9 +125,9 @@ function addItemToFile($title,$categoryId,$imageName){
     return false;
 }
 
-function getAllCategories(){
-    if(file_exists(CATEGORY)){
-        $content = file_get_contents(CATEGORY);
+function getAllCategories($path = CATEGORY){
+    if(file_exists($path)){
+        $content = file_get_contents($path);
         $categories = json_decode($content,true);
         return $categories;
     }
@@ -213,4 +217,51 @@ function sendMessage($name,$text){
         return false;
     }
 }
+
+function createCategory($name) {
+    $idCategory = getMaxIdCategory() + 1;
+    fopen(ADMIN_CATEGORIES_ITEMS_PATH.$idCategory.".csv", 'w');
+    $categories = getAllCategories(ADMIN_CATEGORIES_PATH);
+    $categories[] = array(
+        "id" => $idCategory,
+        "name" => $name
+    );
+    file_put_contents(ADMIN_CATEGORIES_PATH, json_encode($categories));
+    return true;
+}
+
+function getMaxIdCategory() {
+    $categories = getAllCategories(ADMIN_CATEGORIES_PATH);
+    $id = $categories[0]["id"];
+    foreach ($categories as $category) {
+        if($category["id"] > $id) {
+            $id = $category["id"];
+        }
+    }
+    return $id;
+}
+
+function getAllItemsInCategory ($categoryId) {
+    $fileName = ADMIN_CATEGORIES_ITEMS_PATH .$categoryId.".csv";
+    if (file_exists($fileName)){
+
+        $items = array();
+        $handler = fopen($fileName,"r");
+        $countLines = 0;
+        while( !feof( $handler)){
+            $items[] = fgetcsv($handler);
+        }
+        fclose($handler);
+        return $items;
+    }
+    return "getAllItemsInCategory $fileName ERROR";
+}
+
+function deleteCategory($id) {
+    $items = getAllItemsInCategory($id);
+    foreach ($items as $item) {
+
+    }
+}
 ?>
+
