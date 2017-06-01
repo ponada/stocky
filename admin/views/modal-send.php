@@ -9,11 +9,11 @@
                 <form id="sendMessageForm" method="post" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="email">Email</label>
-                        <input type="email" name="email" class="form-control" id="email" placeholder="Email">
+                        <input type="email" name="email" class="form-control" id="messageEmail" placeholder="Email">
                     </div>
                     <div class="form-group">
                         <label for="message">Сообщение</label>
-                        <textarea type="text" name="message"  rows="5" id="message" class="form-control" placeholder="Текст"></textarea>
+                        <textarea type="text" name="message"  rows="5" id="messageText" class="form-control" placeholder="Текст"></textarea>
                     </div>
                 </form>
             </div>

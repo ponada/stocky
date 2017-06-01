@@ -2,10 +2,10 @@
     <div class="left_container">
         <div class="left_nav">
             <ul class="list-group submenu">
-                <li class="list-group-item"><a href="#">Все</a></li>
+                <li class="list-group-item"><a href="/">Все</a></li>
 
                 <?php foreach($categories as $category) {?>
-                <li class="list-group-item"><a href="#"><?php echo $category["name"];?></a></li>
+                <li class="list-group-item"><a href="?cat_id=<?php echo $category["id"];?>"><?php echo $category["name"];?></a></li>
                 <?php }?>
 
             </ul>
