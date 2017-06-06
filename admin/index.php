@@ -18,8 +18,8 @@
         if( isset($email, $password)){
             $access = validateUser($email, $password);
             if ($access["status"]){
+                $categories = getAllCategories(ADMIN_CATEGORIES_PATH);
                 require 'views/admin_panel.php';
-                createCategory("deti");
             }else{
                 require 'views/admin_form.php';
             }

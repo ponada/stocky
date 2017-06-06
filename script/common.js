@@ -4,8 +4,8 @@
 (function(){
 
     var URLS = {
-        SEND_MESSAGE:"admin/api/sendMessage.php",
-        SEND_ITEM:"admin/api/addItem.php"
+        SEND_MESSAGE:"../admin/api/sendMessage.php",
+        SEND_ITEM:"../admin/api/addItem.php"
     };
 
     var ERRORS ={
@@ -29,7 +29,7 @@
         var message = document.getElementById('messageText').value;
         var form = document.getElementById('sendMessageForm');
 
-        if (name.length < 2) {
+        if (email.length < 2) {
             showAlert(parent, ERRORS.LENGTH_NAME_ERROR, 0);
             addListenerForButtonsForm();
             return;
@@ -46,9 +46,10 @@
     function sendItem(){
         removeListenerForButtonsForm();
         var parent = this.parentNode;
-        var form = document.getElementById('add_item_form');
+        var form = document.getElementById('loadImgForm');
         var radios = document.getElementsByName('radio_status');
         var formData = new FormData(form);
+
         var imageType;
         for (var i = 0, length = radios.length; i < length; i++) {
             if (radios[i].checked) {

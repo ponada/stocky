@@ -117,7 +117,7 @@ input[type="file"] {
 	margin: 10px auto;
 }
 .form-control {
-	width: 40%;
+	width: 100%;
 }
 .wrapper {
 	background-color: #f4f4f4;
@@ -205,9 +205,20 @@ input[type="file"] {
 	white-space: normal;
 }
 /*modals*/
-.modal select, .modal input,  .modal textarea{
-	width: 50%;
+.modal select, .modal input,  .modal textarea {
 	margin: 10px auto;
+}
+span.input-group-addon {
+	border: none;
+	background-color: transparent;
+	width: 40px;
+}
+.input-group-addon input[type=checkbox], .input-group-addon input[type=radio] {
+	margin-top: 10px;
+	margin-bottom: 0;
+}
+.input-group {
+	width: 100%;
 }
 /*admin*/
 .admin {

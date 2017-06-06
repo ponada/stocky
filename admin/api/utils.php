@@ -10,6 +10,12 @@ define('IMAGE_MAX_WIDTH',400);
 define('ADMIN_CATEGORIES_ITEMS_PATH', 'bd/category_items');
 define('ADMIN_CATEGORIES_PATH', 'bd/categories.json');
 
+define('ADMIN_AJAX_VALIDATION_ITEMS_PATH','../admin/bd/items_validation.csv');
+define('ADMIN_AJAX_CATEGORIES_ITEMS_PATH','../admin/bd/category_items');
+define('ADMIN_AJAX_CATEGORIES_PATH','../admin/bd/categories.json');
+define('ADMIN_AJAX_IMAGES_PATH','../../img/gallery/');
+define('ADMIN_AJAX_INFO_PATH',"../admin/bd/info.json");
+
 function validateUser($email, $password){
     $info = getInfo('bd/info.json');
     $answer = array("status"=>false);
@@ -22,6 +28,7 @@ function validateUser($email, $password){
 }
 
 function addItemToValidation($title,$categoryId,$url = null){
+    return true;
     $image_path = '../'.IMAGES_PATH;
     if (isset($url)){
         if( $image = file_get_contents($url) ) {
@@ -40,6 +47,7 @@ function addItemToValidation($title,$categoryId,$url = null){
         }
         return false;
     }else if(isset($_FILES['file'])){
+        return true;
         $tmp_file_name = $_FILES["file"]['tmp_name'];
         $name = uploadImageAndResize($tmp_file_name, $image_path, IMAGE_MAX_WIDTH);
         return addItemToFile($title,$categoryId, $name);
@@ -257,11 +265,40 @@ function getAllItemsInCategory ($categoryId) {
     return "getAllItemsInCategory $fileName ERROR";
 }
 
-function deleteCategory($id) {
-    $items = getAllItemsInCategory($id);
-    foreach ($items as $item) {
-
+# Переименование категории
+function renameCategory($id, $newName){
+    $categories = getAllCategories(ADMIN_AJAX_CATEGORIES_PATH);
+    foreach ($categories as &$category){
+        if($category["id"] == $id){
+            $category["name"] = $newName;
+            break;
+        }
     }
+    $str = json_encode($categories);
+    file_put_contents(ADMIN_AJAX_CATEGORIES_PATH,$str);
+    return array("status"=>true,"name"=>$newName);
+}
+
+# Удаление категории
+function deleteCategory($categoryId){
+    $items = getAllItemsInCategory($categoryId);
+    foreach ($items as $item){
+        unlink(ADMIN_AJAX_IMAGES_PATH.$item[0]);
+    }
+    unlink(ADMIN_AJAX_CATEGORIES_ITEMS_PATH.$categoryId.'.csv');
+    $categories = getAllCategories(ADMIN_AJAX_CATEGORIES_PATH);
+    foreach ($categories as $key=>$category){
+        if($category["id"] == $categoryId){
+            $name = $category["name"];
+            unset($categories[$key]);
+            break;
+        }
+    }
+    $categories = array_values($categories);
+    $str = json_encode($categories);
+    file_put_contents(ADMIN_AJAX_CATEGORIES_PATH,$str);
+    $category = array('id'=>$categoryId,'name' => $name);
+    return array('status'=>true,'category'=>$category);
 }
 ?>
 

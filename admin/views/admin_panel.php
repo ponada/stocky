@@ -69,7 +69,7 @@
                         </thead>
                         <tbody>
 
-                        <?php foreach ($categories as $category) { ?>
+                        <?php foreach($categories as $category) {?>
                         <tr>
                             <th>
                                 <?php echo $category["id"]; ?>
@@ -90,28 +90,8 @@
                                 </div>
                             </th>
                         </tr>
-                        <?php } ?>
+                        <?php }?>
 
-                        <tr>
-                            <th>
-                                2
-                            </th>
-                            <th>
-                                <input type="text" class="form-change" value="Дети">
-                            </th>
-                            <th>
-                                <a href="#" class="glyphicon glyphicon-pencil" data-toggle="tooltip" title="Редактировать"></a>
-                                <a href="#" class="glyphicon glyphicon-trash" data-toggle="tooltip" title="Удалить"></a>
-                                <a href="#" class="glyphicon glyphicon-ok" data-toggle="tooltip" title="Сохранить"></a>
-                                <!-- Generated markup by the plugin -->
-                                <div class="tooltip top" role="tooltip">
-                                    <div class="tooltip-arrow"></div>
-                                    <div class="tooltip-inner">
-                                        Some tooltip text!
-                                    </div>
-                                </div>
-                            </th>
-                        </tr>
                         </tbody>
                     </table>
                     <button class="btn btn-primary" id="addCategory">Добавить новую категорию</button>
@@ -151,11 +131,11 @@
                             </th>
                             <th>
                                 <select class="form-change">
-                                    <option>Категория1</option>
-                                    <option>Категория2</option>
-                                    <option>Категория3</option>
-                                    <option>Категория4</option>
-                                    <option>Категория5</option>
+
+                                    <?php foreach($categories as $category) {?>
+                                        <option><?php echo $category["name"]; ?></option>
+                                    <?php }?>
+
                                 </select>
                             </th>
                             <th>
@@ -214,11 +194,11 @@
                             </th>
                             <th>
                                 <select class="form-change">
-                                    <option>Категория1</option>
-                                    <option>Категория2</option>
-                                    <option>Категория3</option>
-                                    <option>Категория4</option>
-                                    <option>Категория5</option>
+
+                                    <?php foreach($categories as $category) {?>
+                                    <option><?php echo $category["name"]; ?></option>
+                                    <?php }?>
+
                                 </select>
                             </th>
                             <th>
@@ -267,11 +247,11 @@
                             </th>
                             <th>
                                 <select class="form-change">
-                                    <option>Категория1</option>
-                                    <option>Категория2</option>
-                                    <option>Категория3</option>
-                                    <option>Категория4</option>
-                                    <option>Категория5</option>
+
+                                    <?php foreach($categories as $category) {?>
+                                        <option><?php echo $category["name"]; ?></option>
+                                    <?php }?>
+
                                 </select>
                             </th>
                             <th>
